@@ -1,8 +1,7 @@
-FROM php:7.0-fpm
+FROM php:7.3-fpm
 
-RUN apt-get update && apt-get install -y libpng-dev libfreetype6-dev libjpeg62-turbo-dev zlib1g-dev libxrender1 libmcrypt-dev  git\
-    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/\
-    && docker-php-ext-install zip pdo pdo_mysql bcmath mbstring mcrypt gd
+RUN apt-get update && apt-get install -y zlib1g-dev libzip-dev  git\
+    && docker-php-ext-install zip pdo pdo_mysql bcmath mbstring
 
 RUN apt-get update \
   && apt-get install -y libmemcached11 libmemcachedutil2 build-essential libmemcached-dev libz-dev \
