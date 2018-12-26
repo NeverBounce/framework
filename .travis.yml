@@ -13,7 +13,8 @@ matrix:
 sudo: false
 
 before_install:
-  - echo "extension=memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - pecl install -f memcached
+#  - echo "extension=memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
 install: travis_retry composer install --no-interaction --prefer-source
 
